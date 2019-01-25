@@ -831,7 +831,7 @@ static void print_hdr_latency(struct hdr_histogram* histogram, const char* descr
     hdr_percentiles_print(histogram, stdout, 5, 1000.0, CLASSIC);
 }
 
-static void print_stats_latency(stats *stats) {
+__attribute__((unused)) static void print_stats_latency(stats *stats) {
     long double percentiles[] = { 50.0, 75.0, 90.0, 99.0, 99.9, 99.99, 99.999, 100.0 };
     printf("  Latency Distribution\n");
     for (size_t i = 0; i < sizeof(percentiles) / sizeof(long double); i++) {

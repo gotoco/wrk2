@@ -10,7 +10,8 @@
 
 static pthread_mutex_t *locks;
 
-static void ssl_lock(int mode, int n, const char *file, int line) {
+__attribute__((unused)) static
+void ssl_lock(int mode, int n, const char *file, int line) {
     pthread_mutex_t *lock = &locks[n];
     if (mode & CRYPTO_LOCK) {
         pthread_mutex_lock(lock);
@@ -19,7 +20,8 @@ static void ssl_lock(int mode, int n, const char *file, int line) {
     }
 }
 
-static unsigned long ssl_id() {
+__attribute__((unused)) static
+unsigned long ssl_id() {
     return (unsigned long) pthread_self();
 }
 
